@@ -21,7 +21,8 @@ void main()
         case 0:
             return;
         case 1:
-        {           
+        {      
+			dsnv = themViTri(dsnv, dscn);
             break;
         }
         case 2:

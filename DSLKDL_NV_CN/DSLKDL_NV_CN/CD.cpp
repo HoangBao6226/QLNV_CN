@@ -100,3 +100,10 @@ bool kiemTraTrungMaNV(NodeptrNV& list, char* ma)
 	return false;
 }
 
+void xuatDSCN(NodeptrCN list, char* ma)
+{
+	cout << setw(20) << left << list->dataCN.maNha << "|";
+	cout << setw(20) << left << list->dataCN.dienTich << "|";
+	cout << setw(15) << left << list->dataCN.donGia << "|";
+	cout << setw(20) << left << list->dataCN.diaChi << endl;
+}

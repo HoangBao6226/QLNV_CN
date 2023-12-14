@@ -3,6 +3,7 @@ void main()
 {
 	NodeptrCN dscn;
 	NodeptrNV dsnv;
+	xuatDSNV(dsnv, dscn);
     int menu;
     do
     {
@@ -21,7 +22,8 @@ void main()
         case 0:
             return;
         case 1:
-        {           
+        {
+			xuatDSNV(dsnv, dscn);
             break;
         }
         case 2:
@@ -29,6 +31,7 @@ void main()
 			NodeptrCN dscnDT = timDienTich(dscn);
 			NodeptrNV dsnvDT;
 			dsnvDT = timNha_DT_DG_MaNhanVien(dsnv);
+          xuatDSNV(dsnvDT, dscnDT);
             break;
         }
         case 3:
@@ -36,21 +39,25 @@ void main()
 			NodeptrCN dscnDG = timDonGia(dscn);
 			NodeptrNV dsnvDG;
 			dsnvDG = timNha_DT_DG_MaNhanVien(dsnv);
+          			xuatDSNV(dsnvDG, dscnDG);
             break;
         }
         case 4:
         {
 			dsnv = xoaMaNV(dsnv, dscn);
+          			xuatDSNV(dsnv, dscn);
             break;
         }
         case 5:
         {
 			dsnv = xoaTenNV(dsnv, dscn);
+          			xuatDSNV(dsnv, dscn);
             break;
         }
         case 6:
         {
 			dsnv = xoaNha_MaNha_MaNV(dsnv, dscn);
+          xuatDSNV(dsnv, dscn);
             break;
         }
         default:
@@ -61,5 +68,6 @@ void main()
         }
         system("pause");
         system("cls");
+		xuatDSNV(dsnv, dscn);
     } while (menu != 0);
 }

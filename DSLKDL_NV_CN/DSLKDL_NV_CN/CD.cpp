@@ -100,6 +100,66 @@ bool kiemTraTrungMaNV(NodeptrNV& list, char* ma)
 	return false;
 }
 
+void xuatDSNV(NodeptrNV list, NodeptrCN dscn)
+{
+	if (list == NULL)
+	{
+		cout << "Danh sach nhan vien rong!" << endl;
+		return;
+	}
+	cout << setfill('-');
+	cout << setw(60) << "-" << endl;
+	cout << setfill(' ');
+	cout << setw(5) << left << "STT" << "|";
+	cout << setw(20) << left << "Ma nhan vien" << "|";
+	cout << setw(20) << left << "Ten nhan vien" << "|";
+	cout << setw(25) << left << "Dia chi nhan vien" << "|";
+	cout << "Danh sach cac can nha nhan vien nay phu trach:" << endl;
+	cout << setfill('*');
+	cout << setw(170) << "*" << endl;
+	cout << setfill(' ');
+	int count = 1;
+	while (list != NULL)
+	{
+		int count2 = 1;
+		cout << setw(5) << left << count++ << "|";
+		cout << setw(20) << left << list->dataNV.maNV << "|";
+		cout << setw(20) << left << list->dataNV.tenNV << "|";
+		cout << setw(25) << left << list->dataNV.diaChiNV << "|";
+		NodeptrCN p = dscn;
+		bool flag = false;
+		while (p != NULL)
+		{
+			if (strcmp(list->dataNV.maNV, p->dataCN.maCheck) == 0)
+			{
+				if (!flag)
+				{
+					cout << setw(10) << left << "STT" << "|";
+					cout << setw(20) << left << "Ma can nha" << "|";
+					cout << setw(20) << left << "Dien tich" << "|";
+					cout << setw(15) << left << "Don gia" << "|";
+					cout << setw(20) << left << "Dia chi" << endl;
+					flag = true;
+				}
+				if (flag)
+				{
+					cout << setw(73) << " " << "|";
+					cout << setw(10) << left << count2++ << "|";
+					xuatDSCN(p, list->dataNV.maNV);
+					if (count2 > 1)
+					{
+						cout << setfill(' ') << setw(70);
+					}
+				}
+			}
+			p = p->nextCN;
+		}
+		if (!flag)
+			cout << setw(10) << "Nhan vien nay khong phu trach can nha nao!" << endl;
+		list = list->nextNV;
+	}
+}
+  
 NodeptrCN timDienTich(NodeptrCN& list)
 {
 	double dt;

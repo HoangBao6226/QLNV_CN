@@ -30,6 +30,7 @@ void main()
         }
         case 3:
         { 
+			NodeptrCN dscnDG = timDonGia(dscn);
             break;
         }
         case 4:

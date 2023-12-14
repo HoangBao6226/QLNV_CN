@@ -100,6 +100,32 @@ bool kiemTraTrungMaNV(NodeptrNV& list, char* ma)
 	return false;
 }
 
+void nhapDSCN(NodeptrCN& list, char* ma)
+{
+	CanNha x;
+	x.maCheck = ma;
+	do {
+		cout << "Nhap ma can nha (nhan Enter de thoat): ";
+		cin.getline(x.maNha, 10);
+		while (kiemTraTrungMaCN(list, x.maNha))
+		{
+			cout << "Ma nha bi trung!" << endl;
+			cout << "Moi nhap lai ma can nha: ";
+			cin.getline(x.maNha, 10);
+		}
+		if (strcmp(x.maNha, "") == 0)
+			break;
+		cout << "Nhap dien tich can nha: ";
+		cin >> x.dienTich;
+		cout << "Nhap don gia can nha: ";
+		cin >> x.donGia;
+		cout << "Nhap dia chi nha: ";
+		cin.ignore();
+		cin.getline(x.diaChi, 50);
+		themDauCN(list, x);
+	} while (true);
+}
+
 void nhapDSNV(NodeptrNV& list, NodeptrCN& dscn)
 {
 	NhanVien x;

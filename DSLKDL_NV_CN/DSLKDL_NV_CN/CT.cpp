@@ -32,6 +32,7 @@ void main()
         }
         case 3:
         { 
+			NodeptrCN dscnDG = timDonGia(dscn);
 			NodeptrNV dsnvDG;
 			dsnvDG = timNha_DT_DG_MaNhanVien(dsnv);
             break;

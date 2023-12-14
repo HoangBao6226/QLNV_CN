@@ -42,6 +42,7 @@ NodeptrCN themDauCN(NodeptrCN& list, CanNha x);
 NodeptrNV themDauNV(NodeptrNV& list, NhanVien x);
 bool kiemTraTrungMaCN(NodeptrCN& list, char* ma);
 bool kiemTraTrungMaNV(NodeptrNV& list, char* ma);
+void xuatDSCN(NodeptrCN list, char* ma);
 void xuatDSNV(NodeptrNV list, NodeptrCN dscn);
 NodeptrCN timDienTich(NodeptrCN& list);
 NodeptrCN timDonGia(NodeptrCN& list);
@@ -49,3 +50,4 @@ NodeptrNV timNha_DT_DG_MaNhanVien(NodeptrNV& list);
 NodeptrNV xoaMaNV(NodeptrNV& list, NodeptrCN& dscn);
 NodeptrNV xoaTenNV(NodeptrNV& list, NodeptrCN& dscn);
 NodeptrNV xoaNha_MaNha_MaNV(NodeptrNV& list, NodeptrCN& dscn);
+

@@ -334,28 +334,7 @@ NodeptrCN timDonGia(NodeptrCN& list)
 	return q;
 }
 
-NodeptrNV timNha_DT_DG_MaNhanVien(NodeptrNV& list)
-{
-	NhanVien x;
-	cout << "Nhap ma nhan vien muon tim kiem: ";
-	cin.ignore();
-	cin.getline(x.maNV, 10);
-	NodeptrNV p = list;
-	NodeptrNV q = NULL;
-	while (p != NULL)
-	{
-		if (strcmp(p->dataNV.maNV, x.maNV) == 0)
-		{
-			if (q == NULL)
-				q = taoNodeNV(p->dataNV);
-			else
-			{
-				themDauNV(q, p->dataNV);
-      }
-      p = p->nextNV;
-	}
-  retunr q;
-}
+
 
 NodeptrNV xoaMaNV(NodeptrNV& list, NodeptrCN& dscn)
 {
@@ -471,4 +450,27 @@ NodeptrNV xoaNha_MaNha_MaNV(NodeptrNV& list, NodeptrCN& dscn)
 		p = p->nextNV;
 	}
 	return list;
+}
+
+NodeptrNV timNha_DT_DG_MaNhanVien(NodeptrNV& list)
+{
+	NhanVien x;
+	cout << "Nhap ma nhan vien muon tim kiem: ";
+	cin.ignore();
+	cin.getline(x.maNV, 10);
+	NodeptrNV p = list;
+	NodeptrNV q = NULL;
+	while (p != NULL)
+	{
+		if (strcmp(p->dataNV.maNV, x.maNV) == 0)
+		{
+			if (q == NULL)
+				q = taoNodeNV(p->dataNV);
+			else
+			{
+				themDauNV(q, p->dataNV);
+      }
+      p = p->nextNV;
+	}
+  retunr q;
 }

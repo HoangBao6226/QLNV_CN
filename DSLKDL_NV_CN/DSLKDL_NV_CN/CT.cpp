@@ -38,6 +38,7 @@ void main()
         }
         case 5:
         {
+			dsnv = xoaTenNV(dsnv, dscn);
             break;
         }
         case 6:

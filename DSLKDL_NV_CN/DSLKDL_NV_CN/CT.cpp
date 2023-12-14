@@ -38,14 +38,17 @@ void main()
         }
         case 4:
         {
+			dsnv = xoaMaNV(dsnv, dscn);
             break;
         }
         case 5:
         {
+			dsnv = xoaTenNV(dsnv, dscn);
             break;
         }
         case 6:
         {
+			dsnv = xoaNha_MaNha_MaNV(dsnv, dscn);
             break;
         }
         default:

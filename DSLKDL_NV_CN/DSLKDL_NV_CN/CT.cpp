@@ -3,6 +3,7 @@ void main()
 {
 	NodeptrCN dscn;
 	NodeptrNV dsnv;
+	xuatDSNV(dsnv, dscn);
     int menu;
     do
     {
@@ -21,27 +22,33 @@ void main()
         case 0:
             return;
         case 1:
-        {           
+        {
+			xuatDSNV(dsnv, dscn);
             break;
         }
         case 2:
         {
+			xuatDSNV(dsnv, dscn);
             break;
         }
         case 3:
         { 
+			xuatDSNV(dsnv, dscn);
             break;
         }
         case 4:
         {
+			xuatDSNV(dsnv, dscn);
             break;
         }
         case 5:
         {
+			xuatDSNV(dsnv, dscn);
             break;
         }
         case 6:
         {
+			xuatDSNV(dsnv, dscn);
             break;
         }
         default:
@@ -52,5 +59,6 @@ void main()
         }
         system("pause");
         system("cls");
+		xuatDSNV(dsnv, dscn);
     } while (menu != 0);
 }

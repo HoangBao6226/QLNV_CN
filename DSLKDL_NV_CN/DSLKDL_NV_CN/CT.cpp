@@ -3,6 +3,7 @@ void main()
 {
 	NodeptrCN dscn;
 	NodeptrNV dsnv;
+	nhapDSNV(dsnv, dscn);
 	xuatDSNV(dsnv, dscn);
     int menu;
     do

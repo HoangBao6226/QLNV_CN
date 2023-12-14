@@ -42,5 +42,6 @@ NodeptrCN themDauCN(NodeptrCN& list, CanNha x);
 NodeptrNV themDauNV(NodeptrNV& list, NhanVien x);
 bool kiemTraTrungMaCN(NodeptrCN& list, char* ma);
 bool kiemTraTrungMaNV(NodeptrNV& list, char* ma);
+NodeptrNV xoaMaNV(NodeptrNV& list, NodeptrCN& dscn);
 NodeptrNV xoaTenNV(NodeptrNV& list, NodeptrCN& dscn);
 NodeptrNV xoaNha_MaNha_MaNV(NodeptrNV& list, NodeptrCN& dscn);

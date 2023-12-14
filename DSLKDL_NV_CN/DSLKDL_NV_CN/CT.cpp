@@ -26,6 +26,7 @@ void main()
         }
         case 2:
         {
+			NodeptrCN dscnDT = timDienTich(dscn);
             break;
         }
         case 3:

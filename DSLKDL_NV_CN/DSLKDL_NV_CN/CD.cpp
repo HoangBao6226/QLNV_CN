@@ -100,3 +100,25 @@ bool kiemTraTrungMaNV(NodeptrNV& list, char* ma)
 	return false;
 }
 
+NodeptrCN timDienTich(NodeptrCN& list)
+{
+	double dt;
+	cout << "Nhap dien tich can nha muon tim kiem: ";
+	cin >> dt;
+	NodeptrCN p = list;
+	NodeptrCN q = NULL;
+	while (p != NULL)
+	{
+		if (p->dataCN.dienTich == dt)
+		{
+			if (q == NULL)
+				q = taoNodeCN(p->dataCN);
+			else
+			{
+				themDauCN(q, p->dataCN);
+			}
+		}
+		p = p->nextCN;
+	}
+	return q;
+}

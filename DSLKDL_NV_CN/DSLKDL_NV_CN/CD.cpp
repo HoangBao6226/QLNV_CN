@@ -100,6 +100,63 @@ bool kiemTraTrungMaNV(NodeptrNV& list, char* ma)
 	return false;
 }
 
+NodeptrNV themViTri(NodeptrNV& list, NodeptrCN& dscn)
+{
+	cout << setfill(' ') << setw(0);
+	int vt;
+	cout << "Nhap vi tri muon chen them nhan vien: ";
+	cin >> vt;
+	int dem = 0;
+	NhanVien x;
+	NodeptrNV p = list;
+	NodeptrNV a = new NodeNV;
+	cout << "Nhap ma nhan vien: ";
+	cin.ignore();
+	cin.getline(x.maNV, 10);
+	while (kiemTraTrungMaNV(list, x.maNV) || strcmp(x.maNV, "") == 0)
+	{
+		cout << "Ma nhan vien bi trung!" << endl;
+		cout << "Moi nhap lai ma nhan vien: ";
+		cin.getline(x.maNV, 10);
+	}
+	cout << "Nhap ten nhan vien: ";
+	cin.getline(x.tenNV, 30);
+	cout << "Nhap dia chi nhan vien: ";
+	cin.getline(x.diaChiNV, 50);
+	a = taoNodeNV(x);
+	if (vt == 1)
+	{
+		a->nextNV = list;
+		cout << setfill('-');
+		cout << setw(60) << "-" << endl;
+		cout << setfill(' ');
+		cout << "Nhap danh sach can nha cua nhan vien " << a->dataNV.maNV << " phu trach : " << endl;
+		cout << setfill('-');
+		cout << setw(60) << "-" << endl;
+		cout << setfill(' ');
+		nhapDSCN(dscn, a->dataNV.maNV);
+		return a;
+	}
+	while (p != NULL)
+	{
+		dem++;
+		if (dem == (vt - 1))
+			break;
+		p = p->nextNV;
+	}
+	a->nextNV = p->nextNV;
+	p->nextNV = a;
+	cout << setfill('-');
+	cout << setw(60) << "-" << endl;
+	cout << setfill(' ');
+	cout << "Nhap danh sach can nha cua nhan vien " << a->dataNV.maNV << " phu trach : " << endl;
+	cout << setfill('-');
+	cout << setw(60) << "-" << endl;
+	cout << setfill(' ');
+	nhapDSCN(dscn, a->dataNV.maNV);
+return list;
+}
+
 void xuatDSCN(NodeptrCN list, char* ma)
 {
 	cout << setw(20) << left << list->dataCN.maNha << "|";

@@ -22,7 +22,8 @@ void main()
         case 0:
             return;
         case 1:
-        {
+        {      
+			dsnv = themViTri(dsnv, dscn);
 			xuatDSNV(dsnv, dscn);
             break;
         }

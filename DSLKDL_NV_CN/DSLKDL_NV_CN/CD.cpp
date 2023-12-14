@@ -102,17 +102,55 @@ bool kiemTraTrungMaNV(NodeptrNV& list, char* ma)
 
 NodeptrNV xoaMaNV(NodeptrNV& list, NodeptrCN& dscn)
 {
-	cout << setfill(' ') << setw(0);
+  cout << setfill(' ') << setw(0);
 	NodeptrNV p = list;
 	NodeptrNV prev = NULL;
 	NodeptrCN q = dscn;
-	char ma[10];
+  char ma[10];
 	cin.ignore();
 	cout << "Nhap ma nhan vien muon xoa: ";
 	cin.getline(ma, 10);
 	while (p != NULL)
 	{
 		if (strcmp(p->dataNV.maNV, ma) == 0)
+      {
+			while (q != NULL)
+			{
+				if(q->dataCN.maCheck == p->dataNV.maNV && p->nextNV != NULL)
+					q->dataCN.maCheck = p->nextNV->dataNV.maNV;
+				else if(q->dataCN.maCheck == p->dataNV.maNV && p->nextNV == NULL)
+					q->dataCN.maCheck = prev->dataNV.maNV;
+				q = q->nextCN;
+			}
+			if (prev == NULL) {
+				prev = list;
+				list = list->nextNV;
+				delete prev;
+				break;
+			}
+			prev->nextNV = p->nextNV;
+			delete p;
+			break;
+		}
+		prev = p;
+    p = p->nextNV;
+	}
+	return list;
+}
+
+NodeptrNV xoaTenNV(NodeptrNV& list, NodeptrCN& dscn)
+{
+	cout << setfill(' ') << setw(0);
+	NodeptrNV p = list;
+	NodeptrNV prev = NULL;
+	NodeptrCN q = dscn;
+	char ten[30];
+	cout << "Nhap ten nhan vien muon xoa: ";
+  cin.ignore();
+	cin.getline(ten, 30);
+	while (p != NULL)
+	{
+		if (strcmp(p->dataNV.tenNV, ten) == 0)
 		{
 			while (q != NULL)
 			{
@@ -133,6 +171,46 @@ NodeptrNV xoaMaNV(NodeptrNV& list, NodeptrCN& dscn)
 			break;
 		}
 		prev = p;
+    p = p->nextNV;
+	}
+	return list;
+}
+
+NodeptrNV xoaNha_MaNha_MaNV(NodeptrNV& list, NodeptrCN& dscn)
+{
+	//cout << setfill(' ') << setw(0);
+	NodeptrNV p = list;
+	NodeptrCN prev = NULL;
+	NodeptrCN q = dscn;
+	char manv[10];
+	cin.ignore();
+	cout << "Nhap ma nhan vien: ";
+	cin.getline(manv, 10);
+	char macn[10];
+	cout << "Nhap ma nha muon xoa: ";
+	cin.getline(macn, 10);
+	while (p != NULL)
+	{
+		if (strcmp(p->dataNV.maNV, manv) == 0)
+		{
+			while (q != NULL)
+			{
+				if (strcmp(q->dataCN.maNha, macn) == 0)
+				{
+					if (prev == NULL) {
+						prev = dscn;
+						dscn = dscn->nextCN;
+						delete prev;
+						break;
+					}
+					prev->nextCN = q->nextCN;
+					delete q;
+					break;
+				}
+				prev = q;
+				q = q->nextCN;
+			}
+		}
 		p = p->nextNV;
 	}
 	return list;

@@ -28,27 +28,36 @@ void main()
         }
         case 2:
         {
-			xuatDSNV(dsnv, dscn);
+			NodeptrCN dscnDT = timDienTich(dscn);
+			NodeptrNV dsnvDT;
+			dsnvDT = timNha_DT_DG_MaNhanVien(dsnv);
+          xuatDSNV(dsnvDT, dscnDT);
             break;
         }
         case 3:
         { 
-			xuatDSNV(dsnv, dscn);
+			NodeptrCN dscnDG = timDonGia(dscn);
+			NodeptrNV dsnvDG;
+			dsnvDG = timNha_DT_DG_MaNhanVien(dsnv);
+          			xuatDSNV(dsnvDG, dscnDG);
             break;
         }
         case 4:
         {
-			xuatDSNV(dsnv, dscn);
+			dsnv = xoaMaNV(dsnv, dscn);
+          			xuatDSNV(dsnv, dscn);
             break;
         }
         case 5:
         {
-			xuatDSNV(dsnv, dscn);
+			dsnv = xoaTenNV(dsnv, dscn);
+          			xuatDSNV(dsnv, dscn);
             break;
         }
         case 6:
         {
-			xuatDSNV(dsnv, dscn);
+			dsnv = xoaNha_MaNha_MaNV(dsnv, dscn);
+          xuatDSNV(dsnv, dscn);
             break;
         }
         default:

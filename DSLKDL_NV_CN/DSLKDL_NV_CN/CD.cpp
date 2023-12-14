@@ -133,6 +133,46 @@ NodeptrNV xoaTenNV(NodeptrNV& list, NodeptrCN& dscn)
 			break;
 		}
 		prev = p;
+    p = p->nextNV;
+	}
+	return list;
+}
+
+NodeptrNV xoaNha_MaNha_MaNV(NodeptrNV& list, NodeptrCN& dscn)
+{
+	//cout << setfill(' ') << setw(0);
+	NodeptrNV p = list;
+	NodeptrCN prev = NULL;
+	NodeptrCN q = dscn;
+	char manv[10];
+	cin.ignore();
+	cout << "Nhap ma nhan vien: ";
+	cin.getline(manv, 10);
+	char macn[10];
+	cout << "Nhap ma nha muon xoa: ";
+	cin.getline(macn, 10);
+	while (p != NULL)
+	{
+		if (strcmp(p->dataNV.maNV, manv) == 0)
+		{
+			while (q != NULL)
+			{
+				if (strcmp(q->dataCN.maNha, macn) == 0)
+				{
+					if (prev == NULL) {
+						prev = dscn;
+						dscn = dscn->nextCN;
+						delete prev;
+						break;
+					}
+					prev->nextCN = q->nextCN;
+					delete q;
+					break;
+				}
+				prev = q;
+				q = q->nextCN;
+			}
+		}
 		p = p->nextNV;
 	}
 	return list;

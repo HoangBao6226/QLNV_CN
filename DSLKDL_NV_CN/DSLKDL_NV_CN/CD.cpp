@@ -100,3 +100,40 @@ bool kiemTraTrungMaNV(NodeptrNV& list, char* ma)
 	return false;
 }
 
+NodeptrNV xoaMaNV(NodeptrNV& list, NodeptrCN& dscn)
+{
+	cout << setfill(' ') << setw(0);
+	NodeptrNV p = list;
+	NodeptrNV prev = NULL;
+	NodeptrCN q = dscn;
+	char ma[10];
+	cin.ignore();
+	cout << "Nhap ma nhan vien muon xoa: ";
+	cin.getline(ma, 10);
+	while (p != NULL)
+	{
+		if (strcmp(p->dataNV.maNV, ma) == 0)
+		{
+			while (q != NULL)
+			{
+				if(q->dataCN.maCheck == p->dataNV.maNV && p->nextNV != NULL)
+					q->dataCN.maCheck = p->nextNV->dataNV.maNV;
+				else if(q->dataCN.maCheck == p->dataNV.maNV && p->nextNV == NULL)
+					q->dataCN.maCheck = prev->dataNV.maNV;
+				q = q->nextCN;
+			}
+			if (prev == NULL) {
+				prev = list;
+				list = list->nextNV;
+				delete prev;
+				break;
+			}
+			prev->nextNV = p->nextNV;
+			delete p;
+			break;
+		}
+		prev = p;
+		p = p->nextNV;
+	}
+	return list;
+}

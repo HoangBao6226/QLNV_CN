@@ -34,6 +34,7 @@ void main()
         }
         case 4:
         {
+			dsnv = xoaMaNV(dsnv, dscn);
             break;
         }
         case 5:

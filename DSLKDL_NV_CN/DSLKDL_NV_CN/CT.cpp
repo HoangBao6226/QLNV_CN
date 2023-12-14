@@ -26,10 +26,14 @@ void main()
         }
         case 2:
         {
+			NodeptrNV dsnvDT;
+			dsnvDT = timNha_DT_DG_MaNhanVien(dsnv);
             break;
         }
         case 3:
         { 
+			NodeptrNV dsnvDG;
+			dsnvDG = timNha_DT_DG_MaNhanVien(dsnv);
             break;
         }
         case 4:

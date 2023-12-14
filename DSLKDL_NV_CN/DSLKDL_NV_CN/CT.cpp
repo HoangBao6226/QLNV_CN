@@ -27,22 +27,30 @@ void main()
         case 2:
         {
 			NodeptrCN dscnDT = timDienTich(dscn);
+			NodeptrNV dsnvDT;
+			dsnvDT = timNha_DT_DG_MaNhanVien(dsnv);
             break;
         }
         case 3:
         { 
+			NodeptrCN dscnDG = timDonGia(dscn);
+			NodeptrNV dsnvDG;
+			dsnvDG = timNha_DT_DG_MaNhanVien(dsnv);
             break;
         }
         case 4:
         {
+			dsnv = xoaMaNV(dsnv, dscn);
             break;
         }
         case 5:
         {
+			dsnv = xoaTenNV(dsnv, dscn);
             break;
         }
         case 6:
         {
+			dsnv = xoaNha_MaNha_MaNV(dsnv, dscn);
             break;
         }
         default:

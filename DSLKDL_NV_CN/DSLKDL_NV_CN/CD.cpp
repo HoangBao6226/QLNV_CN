@@ -102,6 +102,8 @@ bool kiemTraTrungMaNV(NodeptrNV& list, char* ma)
 
 void nhapDSNV(NodeptrNV& list, NodeptrCN& dscn)
 {
+	khoiTaoNV(list);
+	khoiTaoCN(dscn);
 	NhanVien x;
 	int count = 0;
 	do {

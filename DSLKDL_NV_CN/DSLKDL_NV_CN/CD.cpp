@@ -378,35 +378,40 @@ NodeptrNV xoaMaNV(NodeptrNV& list, NodeptrCN& dscn)
 
 NodeptrNV xoaTenNV(NodeptrNV& list, NodeptrCN& dscn)
 {
-	cout << setfill(' ') << setw(0);
-	NodeptrNV p = list;
-	NodeptrNV prev = NULL;
-	NodeptrCN q = dscn;
 	char ten[30];
 	cout << "Nhap ten nhan vien muon xoa: ";
   cin.ignore();
 	cin.getline(ten, 30);
+	NodeptrNV prev = NULL;
+	NodeptrNV p = list;
+	NodeptrCN a = dscn;
 	while (p != NULL)
 	{
 		if (strcmp(p->dataNV.tenNV, ten) == 0)
 		{
-			while (q != NULL)
+			while (a != NULL)
 			{
-				if(q->dataCN.maCheck == p->dataNV.maNV && p->nextNV != NULL)
-					q->dataCN.maCheck = p->nextNV->dataNV.maNV;
-				else if(q->dataCN.maCheck == p->dataNV.maNV && p->nextNV == NULL)
-					q->dataCN.maCheck = prev->dataNV.maNV;
-				q = q->nextCN;
+				if (a->dataCN.maCheck == p->dataNV.maNV && p->nextNV != NULL)
+					a->dataCN.maCheck = p->nextNV->dataNV.maNV;
+				else if (a->dataCN.maCheck == p->dataNV.maNV && p->nextNV == NULL)
+					a->dataCN.maCheck = prev->dataNV.maNV;
+				a = a->nextCN;
 			}
-			if (prev == NULL) {
-				prev = list;
+			a = dscn;
+			NodeptrNV q = p;
+			if (p == list)
+			{
 				list = list->nextNV;
-				delete prev;
-				break;
+				p = list;
+				prev = list;
 			}
-			prev->nextNV = p->nextNV;
-			delete p;
-			break;
+			else
+			{
+				prev->nextNV = p->nextNV;
+				p = p->nextNV;
+			}
+			delete	q;
+			continue;
 		}
 		prev = p;
     p = p->nextNV;

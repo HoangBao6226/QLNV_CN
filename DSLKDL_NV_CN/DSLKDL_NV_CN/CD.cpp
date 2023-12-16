@@ -189,7 +189,7 @@ NodeptrNV themViTri(NodeptrNV& list, NodeptrCN& dscn)
 	cout << "Nhap dia chi nhan vien: ";
 	cin.getline(x.diaChiNV, 50);
 	a = taoNodeNV(x);
-	if (vt == 1)
+	if (vt == 0)
 	{
 		a->nextNV = list;
 		cout << setfill('-');
@@ -204,9 +204,9 @@ NodeptrNV themViTri(NodeptrNV& list, NodeptrCN& dscn)
 	}
 	while (p != NULL)
 	{
-		dem++;
 		if (dem == (vt - 1))
 			break;
+		dem++;
 		p = p->nextNV;
 	}
 	a->nextNV = p->nextNV;

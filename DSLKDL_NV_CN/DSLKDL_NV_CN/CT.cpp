@@ -43,6 +43,7 @@ void main()
         }
         case 6:
         {
+			dsnv = xoaNha_MaNha_MaNV(dsnv, dscn);
             break;
         }
         default:
